@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "serve.dev": "CONFIG_ENV=dev PORT=8000 kaliber-serve",
+    "start": "npm-run-all --parallel watch serve.dev",
+    "watch": "CONFIG_ENV=dev kaliber-watch"
+  },
+  "dependencies": {
+    "@kaliber/build": "^0.0.68"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.3"
+  }
+}
