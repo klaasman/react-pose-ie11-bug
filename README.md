@@ -15,7 +15,19 @@ Wait for the initial build to finish and open [`http://localhost:8000`](http://l
 In `/src/App.js` there's a nested Posed component. This nested component will not inherit the pose of its parent.
 
 ```js
-<ContainerPose pose={somePose}>
+const ContainerPose = posed.div({
+  off: { x: 0 },
+  on: { x: 200 },
+})
+
+const InnerPose = posed.div({
+  off: { y: 0 },
+  on: { y: 200 },
+})
+
+// ...
+
+<ContainerPose pose={togglingOnOrOffPose}>
   <InnerPose /> {/* <= this `<InnerPose />` will not inherit the pose of the `<ContainerPose />` */}
 </ContainerPose>
 ```
