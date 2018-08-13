@@ -1,4 +1,4 @@
-# react-pose ie 11 bug
+# react-pose IE 11 bug
 
 ## running this project
 
@@ -11,10 +11,21 @@ yarn start
 
 Wait for the initial build to finish and open [`http://localhost:8000`](http://localhost:8000) in Internet Explorer 11.
 
+## The issue in IE 11
+In `/src/App.js` there's a nested Posed component. This nested component will not inherit the pose of its parent.
+
+```js
+<ContainerPose pose={somePose}>
+  <InnerPose /> {/* <= this `<InnerPose />` will not inherit the pose of the `<ContainerPose />` */}
+</ContainerPose>
+```
+
+
 ## screen captures
 
-Right tween:  
-![right](/gif-right.png)
-
 Wrong tween (IE11):  
-![right](/gif-wrong.png)
+![right](/gif-wrong.gif)
+
+
+Right tween:  
+![right](/gif-right.gif)
